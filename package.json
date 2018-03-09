@@ -1,0 +1,26 @@
+{
+  "name": "deep-unfreeze",
+  "version": "1.0.0",
+  "description": "Unfreezes a JavaScript object/array/function that has previously been frozen by doing a clone.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicsstar/deep-unfreeze.git"
+  },
+  "keywords": [
+    "unfreeze",
+    "freeze",
+    "javascript",
+    "object",
+    "deep"
+  ],
+  "author": "Victor Igbokwe <vicsstar@yahoo.com> (https://github.com/vicsstar)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vicsstar/deep-unfreeze/issues"
+  },
+  "homepage": "https://github.com/vicsstar/deep-unfreeze#readme"
+}
