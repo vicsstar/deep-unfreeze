@@ -75,7 +75,7 @@ npm install deep-unfreeze
 
 ## Tests
 
-Run unit tests (install dependencies and run):
+Run unit tests (check that all dependencies are installed):
 
 ```sh
 npm install && npm run test
