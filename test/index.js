@@ -1,5 +1,4 @@
 const expect = require('chai').expect;
-const deepFreeze = require('deep-freeze');
 const deepUnfreeze = require('../src/index');
 
 describe('deepUnfreeze()', () => {
@@ -9,12 +8,12 @@ describe('deepUnfreeze()', () => {
         beforeEach(() => {
             sample = {
                 lorem: 'IPSUM',
-                dolor: {
+                dolor: Object.freeze({
                     amet: 'AMET'
-                }
+                })
             };
 
-            deepFreeze(sample);
+            Object.freeze(sample);
         });
 
         it('should unfreeze top-level properties', () => {
@@ -63,16 +62,16 @@ describe('deepUnfreeze()', () => {
 
         beforeEach(() => {
             sample = [
-                [1, 2, 3],
-                { lorem: 'IPSUM' },
-                {
-                    dolor: {
+                Object.freeze([1, 2, 3]),
+                Object.freeze({ lorem: 'IPSUM' }),
+                Object.freeze({
+                    dolor: Object.freeze({
                         amet: 'AMET'
-                    }
-                }
+                    })
+                })
             ];
 
-            deepFreeze(sample);
+            Object.freeze(sample);
         });
 
         it('should unfreeze a simple one-dimensional array', () => {
@@ -146,7 +145,9 @@ describe('deepUnfreeze()', () => {
         beforeEach(() => {
             sample = function() {};
 
-            deepFreeze(sample);
+            Object.freeze(sample.prototype);
+
+            Object.freeze(sample);
         });
 
         it('should unfreeze a frozen function', () => {
