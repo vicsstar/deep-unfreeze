@@ -41,10 +41,42 @@ result = deepUnfreeze(subject);
 result.push('LOREM');
 ```
 
+---
+
+```js
+import deepUnfreeze from 'deep-unfreeze';
+
+let subject,
+    result;
+
+subject = function() {
+};
+
+Object.freeze(subject);
+Object.freeze(subject.prototype);
+
+// This won't work.
+// subject.prototype.sayLorem = function() { console.log('LOREM'); };
+// new subject().sayLorem() // TypeError: (intermediate value).sayIpsum is not a function
+
+result = deepUnfreeze(subject);
+
+result.prototype.sayIpsum = function() { console.log('IPSUM'); };
+// new result().sayIpsum() // "IPSUM"
+```
+
 ## Download
 
 Download using NPM:
 
 ```sh
 npm install deep-unfreeze
+```
+
+## Tests
+
+Run unit tests (install dependencies and run):
+
+```sh
+npm install && npm run test
 ```
