@@ -1,10 +1,10 @@
 {
   "name": "deep-unfreeze",
-  "version": "1.0.0",
-  "description": "Unfreezes a JavaScript object/array/function that has previously been frozen by doing a clone.",
+  "version": "0.1.0",
+  "description": "Unfreezes a JavaScript object/array/function etc. that has previously been frozen, by doing a deep copy.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha test/**/*.js --watch"
   },
   "repository": {
     "type": "git",
@@ -13,14 +13,24 @@
   "keywords": [
     "unfreeze",
     "freeze",
+    "frozen",
     "javascript",
     "object",
-    "deep"
+    "function",
+    "array",
+    "deep",
+    "copy",
+    "recursive"
   ],
   "author": "Victor Igbokwe <vicsstar@yahoo.com> (https://github.com/vicsstar)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vicsstar/deep-unfreeze/issues"
   },
-  "homepage": "https://github.com/vicsstar/deep-unfreeze#readme"
+  "homepage": "https://github.com/vicsstar/deep-unfreeze#readme",
+  "devDependencies": {
+    "chai": "4.1.2",
+    "deep-freeze": "0.0.1",
+    "mocha": "5.0.4"
+  }
 }

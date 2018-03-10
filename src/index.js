@@ -20,11 +20,11 @@ var deepUnfreeze = (obj) => {
     } else if (Array.isArray(obj)) {
       return obj.map((item) => unfreezeProp(item));
     } else if (typeof obj === 'function') {
-      const func = function() {
+      const target = function() {
         obj.call(this, ...arguments);
       };
-      func.prototype = Object.create(obj.prototype);
-      return func;
+      Object.setPrototypeOf(target, Object.getPrototypeOf(obj));
+      return target;
     }
   }
   return obj;
