@@ -3,8 +3,8 @@ const unfreezeProp = (prop) => {
   return Object.isFrozen(prop) ? deepUnfreeze(prop) : prop;
 };
 
-var deepUnfreeze = (obj) => {
-	if (obj !== null) {
+const deepUnfreeze = (obj) => {
+  if (obj !== null) {
     if(obj.constructor.name !== 'Date' &&
       !Array.isArray(obj) &&
       typeof obj !== 'function' &&
@@ -23,7 +23,7 @@ var deepUnfreeze = (obj) => {
       const target = function() {
         obj.call(this, ...arguments);
       };
-      Object.setPrototypeOf(target, Object.getPrototypeOf(obj));
+      target.prototype = Object.create(obj.prototype);
       return target;
     }
   }
